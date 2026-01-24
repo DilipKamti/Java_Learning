@@ -1,0 +1,60 @@
+ _collections/
+│
+├── _01_intro/
+│   ├── CollectionsOverview.java
+│   ├── IterableVsCollectionVsList.java
+│   ├── ListVsSetVsQueue.java
+│
+├── _02_list/
+│   ├── ArrayListDemo.java
+│   ├── LinkedListDemo.java
+│   ├── VectorStackDemo.java
+│   ├── ListInterviewQuestions.java
+│
+├── _03_set/
+│   ├── HashSetDemo.java
+│   ├── LinkedHashSetDemo.java
+│   ├── TreeSetDemo.java
+│   ├── SetInterviewQuestions.java
+│
+├── _04_queue/
+│   ├── QueueBasics.java
+│   ├── PriorityQueueDemo.java
+│   ├── DequeArrayDequeDemo.java
+│   ├── QueueInterviewQuestions.java
+│
+├── _05_map/
+│   ├── HashMapDemo.java
+│   ├── LinkedHashMapDemo.java
+│   ├── TreeMapDemo.java
+│   ├── HashtableDemo.java
+│   ├── MapInterviewQuestions.java
+│
+├── _06_comparator_comparable/
+│   ├── ComparableDemo.java
+│   ├── ComparatorDemo.java
+│   ├── SortingObjects.java
+│   ├── InterviewQuestions.java
+│
+├── _07_iterator_cursor/
+│   ├── IteratorDemo.java
+│   ├── ListIteratorDemo.java
+│   ├── EnumerationDemo.java
+│   ├── FailFastVsFailSafe.java
+│
+├── _08_collections_class/
+│   ├── CollectionsUtilityMethods.java
+│   ├── UnmodifiableCollections.java
+│   ├── SynchronizedCollections.java
+│
+├── _09_stream_with_collections/
+│   ├── StreamBasicsWithList.java
+│   ├── StreamMapFilterReduce.java
+│   ├── CollectorsDemo.java
+│
+└── _10_realworld_mini_tasks/
+    ├── FrequencyCounter.java
+    ├── FirstNonRepeatingChar.java
+    ├── SortByValueMap.java
+    ├── GroupByExample.java
+    ├── RemoveDuplicates.java

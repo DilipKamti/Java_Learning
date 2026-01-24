@@ -1,0 +1,93 @@
+SUPER CLASS OBJECT (java.lang.Object) (Interview Notes)
+=====================================================
+
+1) What is Object class?
+------------------------
+Object class is the ROOT (top-most) superclass in Java.
+
+Meaning:
+Every class in Java automatically extends Object class.
+
+Example:
+class Student { }
+
+Internally behaves like:
+class Student extends Object { }
+
+
+2) Why do we need Object class?
+-------------------------------
+Because Object class provides common methods that every Java object can use.
+
+It gives a universal parent type so Java can treat everything as an Object.
+
+Example:
+Object o = new Student();  // Upcasting possible
+
+
+3) Important Methods of Object class
+------------------------------------
+
+A) toString()
+-------------
+Used to return string representation of an object.
+Default: prints ClassName@hashcode
+
+Example:
+System.out.println(obj);
+
+If you override it, you can print meaningful details.
+
+B) equals(Object obj)
+---------------------
+Used to compare objects.
+Default: compares references (same memory address)
+
+You can override equals() to compare values (content).
+
+C) hashCode()
+-------------
+Returns integer hash value of object.
+Used in HashMap, HashSet.
+
+Rule:
+If equals() is overridden, hashCode() should also be overridden.
+
+D) getClass()
+-------------
+Returns runtime class information.
+Example:
+obj.getClass().getName()
+
+E) clone()
+----------
+Creates a copy of object (requires Cloneable interface).
+Not commonly used in modern projects.
+
+F) finalize()  (Deprecated in modern Java)
+-----------------------------------------
+Called by GC before object is destroyed (not reliable).
+
+G) wait(), notify(), notifyAll()
+--------------------------------
+Used for inter-thread communication (synchronization).
+They belong to Object class because every object can act as a monitor lock.
+
+
+4) Why wait/notify are in Object, not Thread?
+---------------------------------------------
+Because threads communicate using an object's monitor (lock).
+
+Example:
+synchronized(lock) {
+   lock.wait();
+}
+
+So wait/notify must belong to the object being locked.
+
+
+5) Interview One-Liners
+-----------------------
+- Object is the parent of all classes in Java.
+- Every class implicitly extends Object.
+- Common methods: toString, equals, hashCode, getClass, wait/notify.

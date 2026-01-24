@@ -1,0 +1,176 @@
+INHERITANCE IN JAVA (Interview Notes)
+=================================
+
+1) What is Inheritance?
+----------------------
+Inheritance means one class (child/subclass) acquires properties (fields) and behaviors (methods)
+of another class (parent/superclass) using the keyword 'extends'.
+
+Simple words:
+- Parent gives common features
+- Child reuses + can add its own features
+
+Syntax:
+class Child extends Parent { }
+
+Benefits:
+- Code reusability
+- Less duplication
+- Easy maintenance
+- Supports Polymorphism (method overriding)
+
+
+2) Types of Inheritance in Java
+-------------------------------
+
+A) Single Inheritance
+Parent -> Child
+
+class A { }
+class B extends A { }
+
+B) Multilevel Inheritance
+A -> B -> C
+
+class A { }
+class B extends A { }
+class C extends B { }
+
+C) Hierarchical Inheritance
+One parent, multiple children
+
+class A { }
+class B extends A { }
+class C extends A { }
+
+D) Multiple Inheritance (NOT supported using classes)
+A + B -> C  (NOT allowed in Java with classes)
+
+class C extends A, B { }  // ❌ Not allowed
+
+E) Hybrid Inheritance (NOT supported using classes)
+Combination of multiple types (needs multiple inheritance)
+❌ Not supported with classes
+✅ Can be achieved using Interfaces
+
+
+3) Diamond Problem (Very Important)
+-----------------------------------
+Diamond Problem happens when a class tries to inherit from two classes which both have the same method.
+
+Example idea:
+    A
+   /   B   C
+   \ /
+    D
+
+If both B and C have method show(), then D is confused:
+Which show() should it call? B's or C's?
+
+Because of this ambiguity:
+✅ Java does NOT allow multiple inheritance with classes.
+
+
+4) How Java solves Multiple Inheritance?
+----------------------------------------
+Java supports multiple inheritance using Interfaces.
+
+Example:
+interface A { default void show() { } }
+interface B { default void show() { } }
+
+class C implements A, B {
+   @Override
+   public void show() {
+      // must resolve conflict
+      A.super.show();
+      B.super.show();
+   }
+}
+
+
+5) super keyword
+----------------
+super is used to access parent class things:
+- super()           -> calls parent constructor
+- super.methodName() -> calls parent method
+- super.variable     -> accesses parent variable
+
+
+6) Method Overriding (Runtime Polymorphism)
+-------------------------------------------
+Overriding means:
+Child class provides its own implementation of a parent method.
+
+Rules:
+- Same method name
+- Same parameters
+- Same return type (or covariant)
+- Must be in parent-child relationship
+
+Access modifier rule:
+Child method cannot be more restrictive.
+(public -> cannot become protected/private)
+
+
+7) Upcasting (Important)
+------------------------
+Parent reference can hold child object:
+
+Parent p = new Child();
+
+Runtime method call:
+p.overriddenMethod();  // Child version runs
+
+But:
+p.childOnlyMethod();   // ❌ not allowed (reference type decides accessible methods)
+
+
+8) final keyword in inheritance
+-------------------------------
+- final class -> cannot be extended
+- final method -> cannot be overridden
+
+
+9) Quick Interview One-Liners
+-----------------------------
+- Java is single inheritance with classes, multiple inheritance via interfaces.
+- Inheritance supports code reuse and runtime polymorphism.
+- Diamond problem is the reason multiple inheritance with classes is not allowed.
+
+==================================================================================================
+🔥 Interview Questions on Inheritance (Very Common)
+✅ Q1) What is inheritance?
+
+➡️ Reusing parent class properties/methods in child class.
+
+✅ Q2) Types of inheritance in Java?
+
+➡️ Single, Multilevel, Hierarchical
+Multiple & Hybrid not supported using classes (supported using interfaces).
+
+✅ Q3) Why Java does not support multiple inheritance with classes?
+
+➡️ Because of Diamond Problem ambiguity.
+
+✅ Q4) What is Diamond Problem?
+
+➡️ When two parent classes have same method and child gets confused which one to call.
+
+✅ Q5) Can we achieve multiple inheritance in Java?
+
+➡️ Yes using Interfaces.
+
+✅ Q6) What is method overriding?
+
+➡️ Child class provides its own implementation of parent method.
+
+✅ Q7) Difference between Overloading and Overriding?
+Feature				Overloading			Overriding
+Compile/Runtime			Compile time			Runtime
+Same class?			Yes				Parent-child
+Params				Different			Same
+Polymorphism			Compile-time			Runtime
+✅ Q8) What is super?
+
+➡️ Used to call parent constructor/method/variable.

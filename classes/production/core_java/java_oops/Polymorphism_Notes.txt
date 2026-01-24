@@ -1,0 +1,169 @@
+POLYMORPHISM IN JAVA (Interview Notes)
+====================================
+
+1) What is Polymorphism?
+------------------------
+Polymorphism means "many forms".
+
+Simple words:
+Same method call behaves differently depending on the object type.
+
+Example idea:
+Vehicle v = new Car();
+v.start();  // Car start() runs (not Vehicle)
+
+
+2) Why do we need Polymorphism?
+-------------------------------
+Benefits:
+1. Flexibility
+   - You can write generic code that works for many objects.
+
+2. Code Reusability
+   - Common logic in parent, different behavior in children.
+
+3. Loose Coupling
+   - Code depends on interface/parent type, not concrete class.
+
+4. Easy Maintenance
+   - Add new child classes without changing existing code much.
+
+5. Supports OOP design patterns
+   - Strategy, Factory, etc.
+
+
+3) Types of Polymorphism in Java
+--------------------------------
+
+A) Compile-Time Polymorphism (Method Overloading)
+-------------------------------------------------
+Decided at compile time.
+
+Definition:
+Same method name but different parameters.
+
+Examples:
+add(int,int)
+add(int,int,int)
+add(double,double)
+
+Important rules:
+- Overloading happens in same class (or inheritance too, but decided by compiler)
+- Return type alone cannot overload
+- Method signature = name + parameter list
+
+
+B) Runtime Polymorphism (Method Overriding)
+-------------------------------------------
+Decided at runtime (JVM decides).
+
+Definition:
+Child class provides its own implementation of parent method.
+
+Example:
+class Vehicle { void start() {} }
+class Car extends Vehicle { void start() {} }
+
+Vehicle v = new Car();
+v.start();  // Car start() runs
+
+
+4) Key Concept: Upcasting (Most Important)
+------------------------------------------
+Upcasting:
+Parent reference can store child object.
+
+Example:
+Vehicle v = new Car();
+
+Rules:
+- Reference type decides what methods you can call
+- Object type decides which overridden method will execute
+
+
+5) Overloading vs Overriding (Must Know)
+----------------------------------------
+Overloading:
+- Same class
+- Same name, different parameters
+- Compile time decision
+- Improves readability
+
+Overriding:
+- Parent-child relationship
+- Same name, same parameters
+- Runtime decision
+- Supports dynamic behavior
+
+
+6) Rules of Method Overriding (Interview)
+-----------------------------------------
+1) Same method name + same parameters
+2) Must be inheritance relationship
+3) Access modifier cannot be more restrictive
+   - public -> cannot become protected/private
+4) Return type:
+   - same or covariant return type allowed
+5) final method cannot be overridden
+6) static method cannot be overridden (method hiding happens)
+7) private methods cannot be overridden
+
+
+7) Static Method Hiding (Tricky)
+--------------------------------
+Static methods are NOT overridden.
+They are resolved using reference type.
+
+Example:
+A a = new B();
+a.staticMethod();  // runs A's static method (not B)
+
+
+8) Covariant Return Type (Deep Point)
+-------------------------------------
+Overridden method in child can return a subtype of parent's return type.
+
+Example:
+Parent method returns Animal
+Child override can return Dog (Dog extends Animal)
+
+
+9) Interface Polymorphism (Real World)
+--------------------------------------
+Interfaces give best polymorphism.
+
+Example:
+Payment p = new UpiPayment();
+p.pay();
+
+Payment p2 = new CardPayment();
+p2.pay();
+
+Same method call -> different behavior.
+
+
+10) Common Output Questions (Tricks)
+------------------------------------
+Q1:
+Vehicle v = new Car();
+v.start();
+Output: Car start()
+
+Q2:
+Vehicle v = new Vehicle();
+Car c = (Car) v;
+Output: ClassCastException (wrong downcasting)
+
+Q3:
+A a = new B();
+a.staticMethod();
+Output: A staticMethod (static depends on reference type)
+
+
+11) Quick Interview One-Liners
+------------------------------
+- Polymorphism = one interface, many implementations.
+- Overloading = compile-time, Overriding = runtime.
+- Runtime polymorphism works using method overriding + upcasting.
+- Static methods are hidden, not overridden.
+- Java supports polymorphism using inheritance and interfaces.
