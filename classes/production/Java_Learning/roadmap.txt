@@ -1,0 +1,110 @@
+    java-learning-roadmap/
+    ├── _01_basics/
+    │   ├── HelloWorld.java
+    │   ├── VariablesAndDataTypes.java
+    │   ├── Operators.java
+    │   ├── Conditions.java
+    │   ├── Loops.java
+    │   ├── Methods.java
+    │   └── InputOutput.java
+    │
+    ├── _02_oops/
+    │   ├── ClassAndObject.java
+    │   ├── Inheritance.java
+    │   ├── Polymorphism.java
+    │   ├── Abstraction.java
+    │   ├── Encapsulation.java
+    │   ├── Interfaces.java
+    │   └── InnerClasses.java
+    │
+    ├── _03_core_java/
+    │   ├── StringConcepts.java
+    │   ├── WrapperClasses.java
+    │   ├── EnumExamples.java
+    │   ├── DateTimeAPI.java
+    │   └── ImmutableClassExample.java
+    │
+    ├── _04_exception_handling/
+    │   ├── TryCatchFinally.java
+    │   ├── ThrowThrows.java
+    │   ├── CustomException.java
+    │   └── BestPractices.java
+    │
+    ├── _05_collections/
+    │   ├── ListExamples.java
+    │   ├── SetExamples.java
+    │   ├── MapExamples.java
+    │   ├── QueueExamples.java
+    │   ├── ComparableComparator.java
+    │   └── CollectionsUtility.java
+    │
+    ├── _06_generics/
+    │   ├── GenericClass.java
+    │   ├── GenericMethod.java
+    │   ├── Wildcards.java
+    │   └── BoundedTypes.java
+    │
+    ├── _07_java8_features/
+    │   ├── LambdaExamples.java
+    │   ├── FunctionalInterfaces.java
+    │   ├── StreamsBasics.java
+    │   ├── OptionalExamples.java
+    │   ├── MethodReferences.java
+    │   └── DefaultStaticMethods.java
+    │
+    ├── _08_streams_advanced/
+    │   ├── StreamCollectors.java
+    │   ├── GroupingPartitioning.java
+    │   ├── ParallelStreams.java
+    │   └── StreamPerformanceNotes.java
+    │
+    ├── _09_multithreading/
+    │   ├── ThreadCreation.java
+    │   ├── RunnableCallable.java
+    │   ├── ThreadLifecycle.java
+    │   ├── VolatileExample.java
+    │   └── ThreadSafetyBasics.java
+    │
+    ├── _10_synchronization_and_locks/
+    │   ├── SynchronizedKeyword.java
+    │   ├── IntrinsicLocks.java
+    │   ├── ReentrantLockExample.java
+    │   ├── ReadWriteLockExample.java
+    │   └── DeadlockExample.java
+    │
+    ├── _11_executor_framework/
+    │   ├── ExecutorServiceBasics.java
+    │   ├── FixedThreadPool.java
+    │   ├── FutureExample.java
+    │   ├── CompletableFutureExample.java
+    │   └── ScheduledExecutorExample.java
+    │
+    ├── _12_java_concurrency/
+    │   ├── AtomicExamples.java
+    │   ├── ConcurrentHashMapExample.java
+    │   ├── CountDownLatchExample.java
+    │   ├── CyclicBarrierExample.java
+    │   ├── SemaphoreExample.java
+    │   └── BlockingQueueExample.java
+    │
+    ├── _13_design_patterns/
+    │   ├── Singleton.java
+    │   ├── FactoryPattern.java
+    │   ├── BuilderPattern.java
+    │   └── StrategyPattern.java
+    │
+    ├── _14_java_versions_9_to_25/
+    │   ├── Java9ModuleNotes.java
+    │   ├── Java10VarKeyword.java
+    │   ├── Java11HttpClient.java
+    │   ├── Java14Records.java
+    │   ├── Java17SealedClasses.java
+    │   ├── Java21VirtualThreads.java
+    │   └── Java22_23_24_25Updates.java
+    │
+    └── _99_mini_projects/
+        ├── _01_bank_system/
+        ├── _02_task_manager/
+        ├── _03_library_management/
+        ├── _04_file_word_counter/
+        └── _05_concurrent_log_processor/

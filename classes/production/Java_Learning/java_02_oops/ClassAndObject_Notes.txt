@@ -1,0 +1,95 @@
+CLASS AND OBJECT IN JAVA (Interview Notes)
+====================================
+
+1) What is a Class?
+-------------------
+A class is a blueprint/template that defines:
+- Data (fields/variables)
+- Behavior (methods)
+
+Example:
+Class = Car design
+Object = Real car created from that design
+
+
+2) What is an Object?
+---------------------
+An object is a real instance of a class.
+- It occupies memory in the Heap
+- It has its own state (values of fields)
+- It can call methods defined in the class
+
+
+3) How to create an Object?
+---------------------------
+Syntax:
+ClassName ref = new ClassName();
+
+Example:
+Car c1 = new Car();
+
+- 'new' allocates memory for object in Heap
+- 'c1' is a reference variable stored in Stack
+
+
+4) Where are objects stored? (Memory)
+-------------------------------------
+- Object is created in HEAP memory
+- Reference variable is stored in STACK memory
+
+Example:
+Car c1 = new Car();
+
+Stack:
+c1 -> reference/address
+
+Heap:
+Car object (brand, speed, methods access)
+
+
+5) Constructor (Important)
+--------------------------
+Constructor is a special method used to initialize an object.
+
+Rules:
+- Same name as class
+- No return type
+- Called automatically when object is created
+
+Types:
+- Default constructor (provided by Java if none is written)
+- Parameterized constructor (created by developer)
+
+
+6) this keyword
+---------------
+'this' refers to the current object.
+Used when local variables and instance variables have same name.
+
+Example:
+this.name = name;
+
+
+7) Reference Copy (Tricky)
+--------------------------
+Car c1 = new Car();
+Car c2 = c1;
+
+Both c1 and c2 point to SAME object.
+Changing using c2 will affect c1 also.
+
+
+8) null reference
+-----------------
+Car c = null;
+c.drive();  // NullPointerException
+
+Meaning:
+Reference exists but object not created.
+
+
+9) Interview One-Liners
+-----------------------
+- Class is blueprint, object is instance.
+- Objects are stored in heap, references in stack.
+- Constructor initializes object state.

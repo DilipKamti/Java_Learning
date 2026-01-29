@@ -1,0 +1,214 @@
+STRING CONCEPTS IN JAVA (Interview Notes)
+=========================================
+
+1) What is String in Java?
+---------------------------
+String is a sequence of characters.
+In Java, String is a class: java.lang.String
+
+Most Important Point:
+✅ String is IMMUTABLE (cannot be changed after creation)
+
+
+2) Why String is Immutable? (Most Asked)
+-----------------------------------------
+Reasons:
+1) Security
+   - Passwords, DB URL, file paths, tokens are stored as String
+   - If String was mutable, hackers could change values
+
+2) String Constant Pool (Memory Optimization)
+   - Same string literals are shared
+   - Sharing is safe only when object is immutable
+
+3) Thread Safety
+   - Immutable objects are naturally thread-safe
+
+4) HashMap Key Stability
+   - String is used as key in HashMap
+   - If string changes, hashcode changes -> map breaks
+
+
+3) How to Create String Objects?
+---------------------------------
+Two ways:
+
+1) Using String Literal (Stored in SCP)
+   String s1 = "Java";
+
+2) Using new Keyword (Stored in Heap)
+   String s2 = new String("Java");
+
+Key Difference:
+- Literal uses pool (reuse same object)
+- new always creates new object
+
+
+4) String Constant Pool (SCP)
+------------------------------
+SCP is a special memory area inside heap.
+
+Example:
+String a = "java";
+String b = "java";
+
+a == b -> true
+Because both refer to same pooled object.
+
+
+5) == vs equals() (Super Important)
+-----------------------------------
+==  -> compares reference (memory address)
+equals() -> compares content (value)
+
+Example:
+String s1 = "abc";
+String s2 = new String("abc");
+
+s1 == s2        -> false
+s1.equals(s2)   -> true
+
+
+6) concat() and + Operator
+---------------------------
+String is immutable so every change creates new object.
+
+Example:
+String s = "Hello";
+s.concat("World");  // not stored
+System.out.println(s); // Hello
+
+Correct:
+s = s.concat("World"); // stored
+System.out.println(s); // HelloWorld
+
+
+7) Compile Time vs Runtime Concatenation (Tricky)
+--------------------------------------------------
+Compile Time (goes to pool):
+String s1 = "ja" + "va";
+s1 == "java" -> true
+
+Runtime (creates new object):
+String p = "ja";
+String s2 = p + "va";
+s2 == "java" -> false
+
+Because runtime concatenation creates a new String object.
+
+
+8) intern() Method (Advanced)
+------------------------------
+intern() returns pooled reference.
+
+Example:
+String x = new String("java");
+String y = x.intern();
+
+y == "java" -> true
+
+
+9) StringBuilder vs StringBuffer
+--------------------------------
+Both are MUTABLE (can be changed).
+
+StringBuilder:
+✅ Fast
+❌ Not thread-safe
+Best for single-thread programs
+
+StringBuffer:
+✅ Thread-safe (synchronized)
+❌ Slower
+Best for multi-thread programs
+
+
+10) String vs StringBuilder vs StringBuffer
+--------------------------------------------
+String:
+- Immutable
+- Every change creates new object
+
+StringBuilder:
+- Mutable
+- Faster
+
+StringBuffer:
+- Mutable
+- Thread-safe
+
+
+11) Important String Methods
+-----------------------------
+length()
+charAt(index)
+substring(begin, end)
+contains()
+startsWith(), endsWith()
+equalsIgnoreCase()
+toUpperCase(), toLowerCase()
+trim()
+replace()
+split()
+indexOf(), lastIndexOf()
+isEmpty()
+compareTo()
+
+
+12) String Reverse (Interview Favourite)
+-----------------------------------------
+1) Using loop + charAt
+2) Using StringBuilder reverse()
+
+Example:
+new StringBuilder("Java").reverse();
+
+
+13) String is null vs empty vs blank
+-------------------------------------
+null   -> no object (reference is null)
+empty  -> "" length = 0
+blank  -> "   " spaces (Java 11 has isBlank())
+
+Example:
+"" isEmpty() -> true
+"   " isBlank() -> true (Java 11)
+
+
+14) String in HashMap (Important)
+---------------------------------
+String is best key in HashMap because:
+- immutable -> hashcode never changes
+- safe for hashing
+
+
+15) Password Storage (String vs char[])
+----------------------------------------
+char[] is preferred for passwords because:
+- char[] can be cleared manually after use
+- String stays in memory until GC
+
+
+16) Most Common Interview Questions
+------------------------------------
+Q1) Why String is immutable?
+Ans: Security + Pool + Thread safety + HashMap key stability
+
+Q2) Difference between == and equals?
+Ans: == reference, equals content
+
+Q3) What is SCP?
+Ans: Pool for string literals to reuse memory
+
+Q4) Difference between StringBuilder and StringBuffer?
+Ans: Builder fast not thread-safe, Buffer thread-safe slower
+
+Q5) What is intern()?
+Ans: returns pooled reference of string
+
+Q6) How many objects created in:
+String s = "a" + "b";
+Ans: 1 pooled object ("ab") (compile time)
+
+String p="a"; String q = p+"b";
+Ans: new object created at runtime

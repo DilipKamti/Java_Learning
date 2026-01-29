@@ -1,0 +1,86 @@
+ENCAPSULATION IN JAVA (Interview Notes)
+====================================
+
+1) What is Encapsulation?
+-------------------------
+Encapsulation means:
+- Wrapping data (variables) and methods (functions) together inside a class
+- Hiding internal data using 'private'
+- Giving controlled access using public methods (getters/setters)
+
+Simple words:
+"Data is hidden and can be accessed/modified only through methods."
+
+
+2) Why do we need Encapsulation?
+--------------------------------
+Benefits:
+1. Data Security / Data Hiding
+   - Nobody can directly change important fields.
+   Example: balance should not be updated directly.
+
+2. Validation (Business Rules)
+   - You can control allowed values.
+   Example: age cannot be negative, withdraw cannot exceed balance.
+
+3. Better Maintainability
+   - If logic changes, you update it in one place (inside methods).
+
+4. Loose Coupling
+   - Other classes don't depend on internal variable structure.
+
+5. Cleaner Design (Industry Standard)
+   - Makes code professional and scalable.
+
+
+3) How to achieve Encapsulation?
+--------------------------------
+Steps:
+1) Make variables private
+2) Provide public getters (read)
+3) Provide public setters (write) OR better: business methods
+
+Example:
+private double balance;
+
+public double getBalance() { return balance; }
+
+public void deposit(double amount) { ... }
+public void withdraw(double amount) { ... }
+
+
+4) Getter vs Setter
+-------------------
+Getter:
+- Used to read private data
+- Example: getBalance()
+
+Setter:
+- Used to update private data with validation
+- Example: setName()
+
+Note:
+For sensitive fields (like balance), prefer deposit/withdraw instead of setBalance().
+
+
+5) Encapsulation vs Abstraction
+-------------------------------
+Encapsulation:
+- Hides data (private fields)
+- Controlled access (getters/setters)
+
+Abstraction:
+- Hides implementation details
+- Shows only essential features (interfaces/abstract classes)
+
+
+6) Common Interview Questions (Quick)
+-------------------------------------
+Q) What is encapsulation?
+A) Data hiding + controlled access using private fields and public methods.
+
+Q) Why make variables private?
+A) To prevent direct modification and enforce validation.
+
+Q) Is using getter/setter always good?
+A) Not always. For business fields, prefer business methods (deposit/withdraw).

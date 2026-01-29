@@ -1,0 +1,193 @@
+WRAPPER CLASSES IN JAVA (Interview Notes)
+=========================================
+
+1) What are Wrapper Classes?
+-----------------------------
+Wrapper classes are predefined classes in Java that convert primitive data types
+into objects.
+
+Primitive   -> Wrapper Class
+byte        -> Byte
+short       -> Short
+int         -> Integer
+long        -> Long
+float       -> Float
+double      -> Double
+char        -> Character
+boolean     -> Boolean
+
+
+2) Why Wrapper Classes are Needed?
+----------------------------------
+Because primitives are not objects, but many Java features require objects:
+
+✅ Collections (ArrayList, HashMap) store only objects
+   Example: ArrayList<Integer> (not ArrayList<int>)
+
+✅ Generics work only with objects (T cannot be primitive)
+
+✅ Utility methods available in wrappers:
+   Integer.parseInt()
+   Integer.valueOf()
+   compareTo()
+
+✅ Frameworks / APIs often require objects (like Hibernate, Spring)
+
+
+3) Boxing and Unboxing
+-----------------------
+Boxing:
+primitive -> Wrapper Object
+
+Unboxing:
+Wrapper Object -> primitive
+
+Example:
+int a = 10;
+Integer obj = Integer.valueOf(a);   // Boxing (manual)
+
+int x = obj.intValue();             // Unboxing (manual)
+
+
+4) Autoboxing and Auto-unboxing (Java 5+)
+------------------------------------------
+Autoboxing:
+int -> Integer automatically
+
+Auto-unboxing:
+Integer -> int automatically
+
+Example:
+int a = 20;
+Integer obj = a;   // Autoboxing
+
+Integer b = 30;
+int x = b;         // Auto-unboxing
+
+
+5) Wrapper Classes are Immutable
+--------------------------------
+Wrapper objects cannot be changed once created.
+
+Example:
+Integer a = 10;
+a = 20;  // a now points to new object, old one remains
+
+
+6) Wrapper Caching (Most Important Interview Topic)
+----------------------------------------------------
+Java caches wrapper objects to save memory.
+
+Integer Cache Range:
+-128 to 127
+
+Example:
+Integer a = 100;
+Integer b = 100;
+a == b  -> true (same cached object)
+
+Integer x = 200;
+Integer y = 200;
+x == y  -> false (different objects)
+
+
+Caching also applies to:
+Byte      -> all values cached
+Short     -> -128 to 127
+Long      -> -128 to 127
+Character -> 0 to 127
+Boolean   -> true/false cached
+
+
+7) == vs equals() in Wrapper Classes
+-------------------------------------
+== compares references (address)
+equals() compares values (content)
+
+Example:
+Integer a = 128;
+Integer b = 128;
+
+a == b       -> false
+a.equals(b)  -> true
+
+Rule:
+✅ Always use equals() for wrapper comparison
+
+
+8) parseXxx() vs valueOf() (Very Common)
+-----------------------------------------
+parseInt(String) returns primitive:
+Integer.parseInt("123") -> int
+
+valueOf(String) returns wrapper object:
+Integer.valueOf("123")  -> Integer
+
+Same for:
+Double.parseDouble() -> double
+Double.valueOf()     -> Double
+
+
+9) Null Pointer Pitfall (Very Important)
+-----------------------------------------
+Auto-unboxing a null wrapper causes NullPointerException.
+
+Example:
+Integer x = null;
+int y = x;   // ❌ NullPointerException
+
+
+10) Wrapper Classes with Collections
+-------------------------------------
+Collections store objects, so wrapper classes are required.
+
+Example:
+ArrayList<Integer> list = new ArrayList<>();
+list.add(10);  // autoboxing int -> Integer
+
+Loop:
+for(Integer val : list) {
+   sum += val; // auto-unboxing Integer -> int
+}
+
+
+11) Conversions (Quick Notes)
+------------------------------
+int -> Integer:
+Integer obj = 10;
+
+Integer -> String:
+String s = obj.toString();
+
+String -> int:
+int x = Integer.parseInt("99");
+
+String -> Integer:
+Integer y = Integer.valueOf("99");
+
+
+12) Most Asked Interview Questions
+-----------------------------------
+Q1) What are wrapper classes?
+Ans: Classes that wrap primitives into objects.
+
+Q2) Why wrapper classes needed?
+Ans: Collections, Generics, APIs require objects.
+
+Q3) What is boxing/unboxing?
+Ans: primitive <-> wrapper conversion.
+
+Q4) What is autoboxing?
+Ans: automatic primitive -> wrapper conversion.
+
+Q5) parseInt vs valueOf?
+Ans: parseInt returns primitive, valueOf returns wrapper object.
+
+Q6) Why Integer a=100; b=100; a==b true?
+Ans: Integer caching range (-128 to 127).
+
+Q7) What happens if we unbox null?
+Ans: NullPointerException.
+
+Q8) Which is better for comparison?
+Ans: equals() (value comparison).
