@@ -1,0 +1,153 @@
+Cloning means creating an exact copy of an object.
+
+Java provides cloning using:
+-----------------------------
+ - clone() method (from Object class)
+ - Cloneable interface
+
+clone() creates a new object with the same state as the original object.
+
+2) clone() METHOD
+-------------------
+ - Defined in java.lang.Object
+ - Access modifier: protected
+ - Syntax:
+protected Object clone() throws CloneNotSupportedException
+
+To use it:
+ - Class must implement Cloneable
+ - clone() must be overridden and made public
+
+3) Cloneable INTERFACE
+-----------------------
+ - Marker interface (no methods)
+ - Indicates that a class allows cloning
+ - If clone() is called on an object that does not implement Cloneable, a CloneNotSupportedException is thrown.
+
+4) BASIC CLONING EXAMPLE (SHALLOW COPY)
+-----------------------------------------
+class Person implements Cloneable {
+    String name;
+    int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone(); // Shallow copy
+    }
+}
+
+Usage:
+    Person e1 = new Person();
+    Person e2 = (Person) e1.clone();
+
+    e1 != e2
+    Both objects have same data
+
+5) SHALLOW COPY
+-----------------
+ - Copies primitive fields and references to objects
+ - Both original and clone share the same referenced objects
+ - Changes to shared objects affect both original and clone
+
+Example:
+If an object contains another object reference,
+both original and clone point to the same reference.
+
+Problem:
+Changes in nested object affect both original and clone.
+
+6) DEEP COPY
+-----------------
+ - Creates a new object and also creates new instances of referenced objects.
+ - Original and clone are completely independent
+ - Changes in one do not affect the other
+
+ Example:
+ @Override
+ public Object clone() throws CloneNotSupportedException {
+ Employee cloned = (Employee) super.clone();
+ cloned.department = new Department(this.department.name);
+ return cloned;
+ }
+
+ Result:
+ No shared references
+ Safe cloning
+
+7) SHALLOW COPY vs DEEP COPY
+-----------------------------
+Shallow Copy:
+    Fast
+    Shared references
+    Risky for mutable objects
+
+Deep Copy:
+    Safe
+    No shared references
+    More code and overhead
+
+8) RULES TO IMPLEMENT clone()
+------------------------------
+1.Implement Cloneable interface
+2.Override clone()
+3.Make clone() public
+4.Call super.clone()
+5.Handle CloneNotSupportedException
+6.Implement deep copy logic if required
+
+9) BETTER ALTERNATIVES TO clone()
+-----------------------------------
+A.Copy Constructor (RECOMMENDED)
+    public Employee(Employee other) {
+    this.id = other.id;
+    this.name = other.name;
+    }
+
+B.Factory Method
+  public static Employee copy(Employee e) {
+  return new Employee(e.id, e.name);
+  }
+
+C.Builder Pattern
+  Best for complex objects
+  Supports immutability
+
+10) clone() vs COPY CONSTRUCTOR
+--------------------------------
+clone():
+    Legacy approach
+    Uses marker interface
+    Shallow by default
+
+Copy Constructor:
+    Modern and clean
+    Full control over copying
+    Easier to read and maintain
+
+11) SERIALIZATION FOR DEEP COPY
+--------------------------------
+Converts object to byte stream and back
+Creates deep copy
+Slower, but useful in some cases
+
+12) IMPORTANT INTERVIEW QUESTIONS
+----------------------------------
+Q: What happens if Cloneable is not implemented?
+A: CloneNotSupportedException
+
+Q: Is clone() deep copy?
+A: No, shallow copy by default
+
+Q: Why is clone() protected?
+A: To prevent unsafe object copying
+
+Q: Is String cloned?
+A: No need, String is immutable
+
+Q: Is clone() thread-safe?
+A: No, depends on implementation
