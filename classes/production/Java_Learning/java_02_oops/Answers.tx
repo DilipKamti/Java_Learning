@@ -1,0 +1,277 @@
+🔹 Encapsulation – Answers
+========================================================================
+1. What is encapsulation in Java?
+Encapsulation is the process of **wrapping data (variables) and code (methods) into a single unit (class)** and **restricting direct access** to the data using access modifiers.
+
+2. Why are instance variables usually declared `private`?
+To prevent **unauthorized or accidental modification** and to enforce controlled access via getters and setters.
+
+3. How does encapsulation improve security?
+It hides internal data and exposes only required operations, reducing misuse and protecting object state.
+
+4. Difference between encapsulation and abstraction?
+* **Encapsulation**: Hides data using access control.
+* **Abstraction**: Hides implementation details and shows only functionality.
+
+5. Can a class be immutable and still follow encapsulation?
+Yes. Immutable classes use private final variables and no setters, ensuring controlled access.
+
+6. What happens if variables are public?
+It breaks encapsulation, allowing anyone to modify data directly, leading to bugs and poor maintainability.
+
+7. Can validation be done inside setters?
+Yes. It ensures data integrity (e.g., age cannot be negative).
+
+8. Is it mandatory to have both getter and setter?
+No. You may provide only getter (read-only) or only setter (write-only) based on requirement.
+
+9. How does encapsulation support loose coupling?
+Internal changes do not affect external code as long as method contracts remain unchanged.
+
+10. Disadvantages of breaking encapsulation?
+* Tight coupling
+* Difficult debugging
+* Poor maintainability
+* Security risks
+
+11. Can encapsulation be achieved without getters/setters?
+Yes, by exposing behavior methods instead of direct access to data.
+
+12. How does encapsulation help maintainability?
+Changes are localized inside the class without impacting dependent classes.
+
+13. Real-world example of encapsulation?
+ATM machine — user interacts with operations, not internal banking logic.
+
+14. Java Beans and encapsulation?
+Java Beans follow encapsulation using private fields and public getters/setters.
+
+
+🔹 Abstraction – Answers
+========================================================================
+15. What is abstraction?
+Abstraction hides **implementation details** and shows only essential features.
+
+16. Abstract class vs Interface?
+| Abstract Class       | Interface            |
+| -------------------- | -------------------- |
+| Can have state       | No instance state    |
+| Constructors allowed | No constructors      |
+| Single inheritance   | Multiple inheritance |
+
+17. Can abstract class have constructors?
+Yes, to initialize variables of the abstract class.
+
+18. Can abstract class have concrete methods?
+Yes.
+
+19. Can we create object of abstract class?
+No, but reference variables are allowed.
+
+20. Why no multiple inheritance with classes?
+To avoid ambiguity (Diamond Problem).
+
+21. 100% abstraction possible after Java 8?
+No, because interfaces can have default methods.
+
+22. Default methods – why introduced?
+To add new methods to interfaces without breaking existing implementations.
+
+23. Can interface extend another interface?
+Yes, and it supports multiple inheritance.
+
+24. Can class implement multiple interfaces?
+Yes.
+
+25. When to choose abstract class over interface?
+When you need:
+
+* State
+* Constructors
+* Protected methods
+
+26. Abstraction in API design?
+APIs expose behavior without revealing internal implementation.
+
+27. Real-world abstraction example?
+Vehicle interface → drive(), stop()
+Car/Bike provide implementation.
+
+28. If class doesn’t implement all abstract methods?
+Class must be declared abstract.
+
+29. Can abstract methods be private or final?
+No. They must be overridden.
+
+
+🔹 Inheritance – Answers
+========================================================================
+30. What is inheritance?
+Inheritance allows a class to acquire properties and behavior of another class.
+
+31. Types supported?
+* Single
+* Multilevel
+* Hierarchical
+  (Not Multiple via classes)
+
+32. Why no multiple inheritance?
+To avoid method ambiguity.
+
+33. IS-A vs HAS-A?
+* IS-A → inheritance
+* HAS-A → composition
+
+34. What is method overriding?
+Providing a new implementation of parent method in child class.
+
+35. Rules for overriding?
+* Same method signature
+* Same or wider access
+* Cannot reduce visibility
+
+36. Can static methods be overridden?
+No. They are hidden, not overridden.
+
+37. Can private methods be overridden?
+No. They are not visible to child classes.
+
+38. Use of `super`?
+* Access parent methods/variables
+* Call parent constructor
+
+39. Are constructors inherited?
+No.
+
+40. What is constructor chaining?
+Calling parent constructor using `super()`.
+
+41. Parent & child constructor execution order?
+Parent constructor executes first.
+
+42. Upcasting and Downcasting?
+* Upcasting → Parent reference to child object
+* Downcasting → Explicit cast back to child
+
+43. Diamond problem?
+Multiple inheritance ambiguity solved using interfaces.
+
+44. Can child reduce method visibility?
+No.
+
+45. Same variable name in parent & child?
+Variable hiding occurs (resolved at compile time).
+
+🔹 Polymorphism – Answers
+========================================================================
+46. What is polymorphism?
+
+Ability of an object to take many forms.
+
+47. Types?
+
+* Compile-time (Overloading)
+* Runtime (Overriding)
+
+48. Compile-time vs Runtime?
+
+| Compile-time  | Runtime      |
+| ------------- | ------------ |
+| Overloading   | Overriding   |
+| Early binding | Late binding |
+
+49. Method overloading?
+
+Same method name, different parameters.
+
+50. Overloading rules?
+
+* Parameter list must differ
+* Return type alone is not enough
+
+51. Can main be overloaded?
+
+Yes, but JVM calls standard main only.
+
+52. Overload by return type only?
+
+No.
+
+53. Method overriding?
+
+Child provides specific implementation.
+
+54. JVM method selection?
+
+Based on object type at runtime.
+
+55. Dynamic method dispatch?
+
+Runtime method resolution using parent reference.
+
+56. Can constructors be overloaded?
+
+Yes.
+
+57. Can final methods be overridden?
+
+No.
+
+58. Polymorphism using interfaces?
+
+Yes, interface reference can point to any implementing class.
+
+59. instanceof vs casting?
+
+* instanceof checks type
+* Casting converts reference
+
+60. Real-world polymorphism?
+
+Payment → CreditCard / UPI / NetBanking
+
+
+🔹 Advanced OOP – Answers
+61. Composition vs inheritance?
+
+Composition is more flexible and loosely coupled.
+
+62. Why composition preferred?
+
+Avoids tight coupling and inheritance complexity.
+
+63. Polymorphism in Spring Boot?
+
+Used in:
+
+* Interfaces + @Service
+* Dependency Injection
+
+64. Overridden method & checked exceptions?
+
+Child cannot throw broader checked exceptions.
+
+65. Covariant return types?
+
+Overridden method can return subclass type.
+
+66. equals & hashCode polymorphism?
+
+Used during runtime object comparison in collections.
+
+67. Interface variables?
+
+Public, static, final by default.
+
+68. Change access modifier while overriding?
+
+Allowed only to increase visibility.
+
+69. Liskov Substitution Principle?
+
+Child object should replace parent without breaking behavior.
+
+70. OOP & clean architecture?
+
+Promotes modular, testable, maintainable systems.
+

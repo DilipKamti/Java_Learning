@@ -1,0 +1,249 @@
+
+# 1. Basic Java Stream API Questions
+
+### Filtering
+
+1. Given a list of integers, filter **even numbers**.
+2. Filter **numbers greater than 10** from a list.
+3. From a list of strings, filter strings that **start with "A"**.
+4. Filter **non-empty strings** from a list.
+5. From a list of employees, filter employees **with salary > 50,000**.
+
+**Methods Covered**
+
+* `stream()`
+* `filter()`
+* `collect()`
+
+---
+
+### Mapping
+
+6. Convert a list of strings to **uppercase**.
+7. Convert a list of integers to **their squares**.
+8. Extract **names from a list of Employee objects**.
+9. Convert list of strings to **their lengths**.
+10. Add **10 to every number in the list**.
+
+**Methods Covered**
+
+* `map()`
+* `collect()`
+
+---
+
+### Sorting
+
+11. Sort a list of integers **ascending**.
+12. Sort a list of integers **descending**.
+13. Sort list of strings **alphabetically**.
+14. Sort employees by **salary**.
+15. Sort employees by **name**.
+
+**Methods Covered**
+
+* `sorted()`
+* `Comparator`
+
+---
+
+### Distinct / Limit / Skip
+
+16. Remove **duplicate numbers** from a list.
+17. Get **first 5 elements** from a list.
+18. Skip **first 3 numbers** from a list.
+19. Get **top 3 highest numbers**.
+20. Get **second highest number**.
+
+**Methods Covered**
+
+* `distinct()`
+* `limit()`
+* `skip()`
+
+---
+
+# 2. Intermediate Java Stream Questions
+
+### Count / Min / Max
+
+21. Count numbers **greater than 50**.
+22. Find **maximum number** in list.
+23. Find **minimum number** in list.
+24. Find employee with **highest salary**.
+25. Find employee with **lowest salary**.
+
+**Methods Covered**
+
+* `count()`
+* `min()`
+* `max()`
+
+---
+
+### Reduce
+
+26. Find **sum of all numbers** using `reduce`.
+27. Find **product of numbers**.
+28. Find **maximum number using reduce**.
+29. Concatenate all strings in a list.
+30. Find **total salary of employees**.
+
+**Methods Covered**
+
+* `reduce()`
+
+---
+
+### Matching
+
+31. Check if **any number > 100**.
+32. Check if **all numbers are positive**.
+33. Check if **none of the numbers are negative**.
+34. Check if **any employee salary > 1 lakh**.
+35. Check if **all employees are active**.
+
+**Methods Covered**
+
+* `anyMatch()`
+* `allMatch()`
+* `noneMatch()`
+
+---
+
+### Find Operations
+
+36. Find **first element** in list.
+37. Find **any element** from stream.
+38. Find **first employee with salary > 50k**.
+
+**Methods Covered**
+
+* `findFirst()`
+* `findAny()`
+
+---
+
+# 3. Advanced Stream Questions
+
+### Grouping
+
+39. Group employees by **department**.
+40. Group numbers by **even and odd**.
+41. Group strings by **their length**.
+42. Count employees in each department.
+43. Find **highest salary in each department**.
+
+**Methods Covered**
+
+* `Collectors.groupingBy()`
+* `Collectors.counting()`
+
+---
+
+### Partitioning
+
+44. Partition numbers into **even and odd**.
+45. Partition employees based on **salary > 50k**.
+
+**Methods Covered**
+
+* `partitioningBy()`
+
+---
+
+### Collectors
+
+46. Join list of strings into **single string separated by comma**.
+47. Convert stream to **Set**.
+48. Convert stream to **Map**.
+49. Get **average of numbers**.
+50. Get **summary statistics of numbers**.
+
+**Methods Covered**
+
+* `Collectors.joining()`
+* `Collectors.toSet()`
+* `Collectors.toMap()`
+* `Collectors.averagingInt()`
+* `Collectors.summarizingInt()`
+
+---
+
+# 4. Real Interview Level Problems
+
+51. Find **duplicate elements** in list.
+52. Find **first non-repeated character in string**.
+53. Find **frequency of each character in string**.
+54. Find **top 3 highest salaries**.
+55. Find **second highest number in array**.
+56. Find **longest string in list**.
+57. Find **employee with highest salary per department**.
+58. Flatten **list of lists into single list**.
+59. Convert **List<Employee> → Map<Department, List<Employee>>**.
+60. Sort employees by **salary then name**.
+
+**Methods Covered**
+
+* `flatMap()`
+* `groupingBy()`
+* `Comparator.thenComparing()`
+
+---
+
+# 5. Expert Level Problems
+
+61. Find **kth largest element using streams**.
+62. Merge two lists and remove duplicates.
+63. Find **common elements between two lists**.
+64. Find **difference between two lists**.
+65. Convert list to **Map with duplicate keys handling**.
+66. Find **most frequent element in list**.
+67. Group anagrams using streams.
+68. Find **first repeating element**.
+69. Sort map by **value using streams**.
+70. Convert **Map → Sorted Map using streams**.
+
+---
+
+# Important Stream Methods You Must Master
+
+### Stream Creation
+
+* `stream()`
+* `parallelStream()`
+
+### Intermediate Operations
+
+* `filter()`
+* `map()`
+* `flatMap()`
+* `sorted()`
+* `distinct()`
+* `limit()`
+* `skip()`
+* `peek()`
+
+### Terminal Operations
+
+* `collect()`
+* `forEach()`
+* `reduce()`
+* `count()`
+* `min()`
+* `max()`
+* `findFirst()`
+* `findAny()`
+* `anyMatch()`
+* `allMatch()`
+* `noneMatch()`
+
+### Collectors
+
+* `groupingBy()`
+* `partitioningBy()`
+* `joining()`
+* `mapping()`
+* `counting()`
+* `averagingInt()`
+* `summarizingInt()`

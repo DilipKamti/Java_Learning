@@ -1,0 +1,186 @@
+## 🔹 Basics of Exceptions
+=============================================================
+### 1. What is an exception in Java?
+An exception is an **abnormal event** that occurs during program execution and disrupts the normal flow.
+
+### 2. Difference between error and exception?
+* **Error**: Serious issues (OutOfMemoryError) – not recoverable.
+* **Exception**: Recoverable problems (IOException, NullPointerException).
+
+### 3. What is exception handling and why needed?
+It is a mechanism to **handle runtime errors gracefully** and prevent application crash.
+
+### 4. Exception hierarchy in Java?
+```
+Throwable
+ ├── Error
+ └── Exception
+      ├── Checked Exceptions
+      └── RuntimeException (Unchecked)
+```
+
+### 5. Checked vs unchecked exceptions?
+* **Checked**: Checked at compile time (IOException)
+* **Unchecked**: Checked at runtime (NullPointerException)
+
+### 6. Why is RuntimeException unchecked?
+Because they represent **programming mistakes** that should be fixed in code.
+
+### 7. Difference between throw and throws?
+* `throw` → explicitly throws exception
+* `throws` → declares exception in method signature
+
+### 8. Purpose of try and catch?
+* `try` → code that may cause exception
+* `catch` → handles exception
+
+### 9. Can try exist without catch?
+Yes, if followed by `finally`.
+
+### 10. Multiple catch blocks allowed?
+Yes, to handle different exception types.
+
+### 11. If exception not handled?
+Program terminates and stack trace is printed.
+
+### 12. Default exception handler?
+JVM default handler prints stack trace and terminates program.
+
+
+## 🔹 Checked vs Unchecked
+==============================================================
+### 13. Examples of checked exceptions?
+IOException, SQLException, FileNotFoundException
+
+### 14. Examples of unchecked exceptions?
+NullPointerException, ArithmeticException, ArrayIndexOutOfBoundsException
+
+### 15. Why checked exceptions at compile time?
+To **force developers** to handle recoverable situations.
+
+### 16. Can RuntimeException be caught?
+Yes.
+
+### 17. Handle or propagate checked exceptions?
+Depends on responsibility; propagate if caller can handle better.
+
+### 18. Can we throw unchecked exceptions?
+Yes, using `throw new RuntimeException()`.
+
+### 19. Catch hierarchy rule?
+Catch **child exceptions first**, then parent.
+
+### 20. Can we catch Throwable?
+Yes, but **not recommended** (catches errors too).
+
+## 🔹 try–catch–finally
+==============================================================
+### 21. Purpose of finally?
+Used for **cleanup code** (closing resources).
+
+### 22. Is finally always executed?
+Almost always, except when:
+* `System.exit()`
+* JVM crash
+
+### 23. Can finally throw exception?
+Yes, but it suppresses original exception (bad practice).
+
+### 24. Return in finally?
+Allowed, but **strongly discouraged**.
+
+### 25. catch vs finally exception?
+Finally exception overrides catch exception.
+
+### 26. Code after finally?
+Yes, unless program terminates earlier.
+
+### 27. Nested try–catch?
+Yes, allowed.
+
+### 28. try without catch and finally?
+No (invalid syntax).
+
+### 29. try-with-resources?
+Automatically closes resources after execution.
+
+### 30. Interfaces used in try-with-resources?
+`AutoCloseable` and `Closeable`
+
+## 🔹 Custom Exceptions
+==============================================================
+### 31. How to create custom exception?
+Extend `Exception` or `RuntimeException`.
+
+### 32. Exception vs RuntimeException extension?
+* Exception → checked
+* RuntimeException → unchecked
+
+### 33. When to create custom exception?
+For **business-specific error scenarios**.
+
+### 34. Can custom exception be unchecked?
+Yes.
+
+### 35. Best practices?
+* Meaningful names
+* Custom messages
+* Avoid excessive exceptions
+
+## 🔹 Advanced & Tricky
+===============================================================
+### 36. Exception chaining?
+Wrapping original exception using constructor.
+
+### 37. Preserve original exception?
+Pass it as cause:
+```java
+throw new CustomException("msg", e);
+```
+
+### 38. printStackTrace vs logging?
+* printStackTrace → console only
+* logging → configurable, production-ready
+
+### 39. Exception in constructor?
+Object creation fails.
+
+### 40. Override method exception rules?
+* Cannot throw broader checked exception
+* Can throw unchecked exceptions
+
+### 41. Suppressed exceptions?
+Exceptions suppressed in try-with-resources when close() fails.
+
+### 42. Exceptions in multithreading?
+Handled per thread; uncaught exceptions handled by thread handler.
+
+### 43. Can static block throw exception?
+Yes, but must handle it; unchecked exceptions stop class loading.
+
+### 44. final vs finally vs finalize()?
+* `final` → constant / no override
+* `finally` → cleanup block
+* `finalize()` → GC method (deprecated)
+
+### 45. Exception handling in Spring Boot?
+* `@ControllerAdvice`
+* `@ExceptionHandler`
+* Global exception handling
+
+## Bonus Scenario-Based
+================================================================
+### 46. Exception inside loop?
+Loop breaks unless handled inside loop.
+
+### 47. System.exit() in try?
+Finally block is **not executed**.
+
+### 48. Performance impact?
+Exceptions are expensive; should not be used for flow control.
+
+### 49. When not to use exceptions?
+For normal logic (like validations).
+
+### 50. Real-world example?
+Handling payment failure, DB connection failure, API timeout.

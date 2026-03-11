@@ -1,0 +1,84 @@
+🔹 Encapsulation (Basics → Advanced)
+==============================================================================
+1. What is encapsulation in Java?
+2. Why are instance variables usually declared private?
+3. How does encapsulation improve security?
+4. Difference between encapsulation and abstraction?
+5. Can a class be immutable and still follow encapsulation?
+6. What happens if we expose variables using public instead of getters/setters?
+7. Can we perform validation inside setters? Why is it recommended?
+8. Is it mandatory to have both getter and setter methods?
+9. How does encapsulation help in loosely coupled design?
+10. What are the disadvantages of breaking encapsulation?
+11. Can encapsulation be achieved without getters and setters?
+12. How does encapsulation support maintainability in large applications?
+13. Explain real-world example of encapsulation.
+14. How does Java Bean standard relate to encapsulation?
+
+🔹 Abstraction (Basics → Advanced)
+==============================================================================
+15. What is **abstraction** in Java?
+16. Difference between **abstract class and interface**?
+17. Can an abstract class have constructors? Why?
+18. Can an abstract class have concrete methods?
+19. Can we create an object of an abstract class?
+20. Why multiple inheritance is not supported with classes but supported with interfaces?
+21. What is **100% abstraction** and is it still possible after Java 8?
+22. What are **default methods** in interfaces and why were they introduced?
+23. Can an interface extend another interface?
+24. Can a class implement multiple interfaces?
+25. When should you prefer abstract class over interface?
+26. How does abstraction help in API design?
+27. Explain abstraction with a real-world example.
+28. What happens if a class does not implement all abstract methods?
+29. Can abstract methods be `private` or `final`? Why/why not?
+
+🔹 Inheritance (Basics → Advanced)
+==============================================================================
+30. What is **inheritance** in Java?
+31. Types of inheritance supported in Java.
+32. Why does Java not support multiple inheritance with classes?
+33. Difference between **IS-A** and **HAS-A** relationship.
+34. What is method overriding?
+35. Rules for method overriding in Java.
+36. Can we override static methods?
+37. Can we override private methods?
+38. What is the use of `super` keyword?
+39. Can constructors be inherited?
+40. What is constructor chaining?
+41. What happens if parent and child both have constructors?
+42. Explain **upcasting and downcasting**.
+43. What is the diamond problem and how Java avoids it?
+44. Can a subclass reduce visibility of overridden methods?
+45. What happens when parent and child have same variable name?
+
+🔹 Polymorphism (Basics → Advanced)
+==============================================================================
+46. What is **polymorphism** in Java?
+47. Types of polymorphism in Java.
+48. Difference between **compile-time and runtime polymorphism**.
+49. What is method overloading?
+50. Rules for method overloading.
+51. Can we overload `main()` method?
+52. Can we overload methods by changing return type only?
+53. What is method overriding?
+54. How does JVM decide which overridden method to call?
+55. What is **dynamic method dispatch**?
+56. Can constructors be overloaded?
+57. Can final methods be overridden?
+58. Can we achieve polymorphism using interfaces?
+59. Difference between `instanceof` and type casting.
+60. Real-world example of polymorphism.
+
+🔹 Advanced / Tricky OOP Questions (4+ Years)
+==============================================================================
+61. Difference between **composition and inheritance** — which is better and why?
+62. Why is composition preferred over inheritance?
+63. How does polymorphism help in Spring Boot / Microservices?
+64. What happens if overridden method throws checked exception?
+65. Explain covariant return types.
+66. How does `equals()` and `hashCode()` relate to polymorphism?
+67. Can an interface have variables? How are they treated?
+68. What happens when you override a method and change access modifier?
+69. Explain Liskov Substitution Principle with example.
+70. How does OOP support clean architecture?

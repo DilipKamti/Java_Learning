@@ -1,0 +1,68 @@
+## 🔹 Basics of Exceptions
+============================================================
+1. What is an exception in Java?
+2. Difference between **error** and **exception**?
+3. What is exception handling and why is it needed?
+4. What is the hierarchy of exceptions in Java?
+5. Difference between **checked** and **unchecked** exceptions?
+6. Why is `RuntimeException` unchecked?
+7. What is the difference between `throw` and `throws`?
+8. What is the purpose of `try` and `catch` blocks?
+9. Can a `try` block exist without a `catch` block?
+10. Can multiple `catch` blocks be used with a single `try`?
+11. What happens if an exception is not handled?
+12. What is the default exception handler in Java?
+
+## 🔹 Checked vs Unchecked Exceptions
+============================================================
+13. Examples of checked exceptions.
+14. Examples of unchecked exceptions.
+15. Why are checked exceptions enforced at compile time?
+16. Can we catch `RuntimeException`?
+17. Should we handle or propagate checked exceptions?
+18. Can we throw unchecked exceptions explicitly?
+19. Why does Java not allow catching multiple exceptions with the same hierarchy order?
+20. Can we catch `Throwable`?
+
+## 🔹 try–catch–finally Block
+============================================================
+21. What is the purpose of `finally` block?
+22. Is `finally` always executed?
+23. Can `finally` block throw an exception?
+24. Can we use `return` in `finally` block?
+25. What happens if both `catch` and `finally` throw exceptions?
+26. Can we write code after `finally` block?
+27. Can we have nested try–catch blocks?
+28. Can we have `try` without `catch` and `finally`?
+29. What is **try-with-resources**?
+30. Which interfaces are used in try-with-resources?
+
+## 🔹 Custom / User-Defined Exceptions
+============================================================
+31. How do you create a custom exception?
+32. Difference between extending `Exception` and `RuntimeException`?
+33. When should you create a custom exception?
+34. Can a custom exception be unchecked?
+35. What are best practices for custom exceptions?
+
+## 🔹 Advanced & Tricky Exception Questions
+============================================================
+36. What is exception chaining?
+37. How do you preserve the original exception?
+38. Difference between `printStackTrace()` and logging?
+39. What happens if an exception is thrown in a constructor?
+40. Can we override a method and throw a different exception?
+41. What are suppressed exceptions?
+42. How does exception handling work in multithreading?
+43. Can static blocks throw exceptions?
+44. Difference between `final`, `finally`, and `finalize()`?
+45. How are exceptions handled in Spring Boot applications?
+
+## Bonus Scenario-Based Questions
+============================================================
+46. What happens when an exception is thrown inside a loop?
+47. What happens if `System.exit()` is called inside try block?
+48. What is the performance impact of exceptions?
+49. When should exceptions not be used?
+50. Real-world example of exception handling in enterprise apps.
+

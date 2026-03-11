@@ -1,9 +1,4 @@
 package java_05_collections.list;
-
-// ArrayListDemo.java
-// Java ArrayList - Basic to Deep Dive ✅
-// Covers: creation, methods, iteration, internal mechanics, resizing, performance tips, interview Q&A
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
